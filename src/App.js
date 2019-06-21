@@ -636,7 +636,7 @@ class ModalPage extends React.Component {
   handleKeyUp = (event) => {
     if (event.keyCode === parseInt('13')) {
       if (this.state.newNote.indexOf(' ') === -1 && this.state.newNote.length !== 1) {
-        alert('space');
+        //alert('space');
         this.setState({
           visible: false
         })
@@ -823,8 +823,8 @@ class ModalPage extends React.Component {
           left: 0,
           bottom: 0,
           right: 0,
-          height: "59em",
-          background: "rgba(0, 0, 0, 0.15)"
+          height: "65em",
+          background: "#fff"
         }}
       >
         <div
@@ -832,11 +832,11 @@ class ModalPage extends React.Component {
             position: "absolute",
             background: "#fff",
             // top: 2,
-            left: "2%",
-            right: "2%",
-            padding: 15,
+            // left: "2%",
+            //right: "1%",
+            //padding: 15,
             //height: "55.8em",
-            height: "59em",
+            height: "60em",
             border: "1px solid transparent"
           }}
         >
@@ -861,89 +861,79 @@ class ModalPage extends React.Component {
               </form>
             </div>
           </Modal>
+            
           <Layout style={{marginTop:"-1.3em"}}>
-            <Header style={{ position: 'fixed', zIndex: 1, width: '94%', height:"7em" }}>
-              <Col span={24} style={{marginTop:"0em"}}>
-              {/* <Col span={1}></Col> */}
-              <Col span={4}><p className="price">Violation ID: {violation_id.length !== 0 ? violation_id : this.state.id}</p></Col>
-              <Col span={1}></Col>
-              <Col span={5}><p className="price">Seller Advertised Price ($): {Aprice.length !== 0 ? Aprice : this.state.advertisedPrice}</p></Col>
-              <Col span={1}></Col>
-              <Col span={5}><p className="price">Lowest Possible Price ($): {Lprice.length !== 0 ? Lprice : this.state.lowestPrice}</p></Col>
-              <Col span={1}></Col>
-              <Col span={3}><p className="price">MAP ($): {map.length !== 0 ? map : this.state.map}</p></Col>
-              <Col span={1}></Col>
-              <Col span={3}><p className="price">SKU: {sku.length !== 0 ? sku : this.state.sku}</p></Col>
-              </Col>
+            <Header style={{ position: 'fixed', zIndex: 1, width:"100%", height:"10em" }}>
+              <Col span={24}>
+                  <Col span={4}><p className="price">Violation ID: {violation_id.length !== 0 ? violation_id : this.state.id}</p></Col>
+                  <Col span={1}></Col>
+                  <Col span={6}><p className="price">Seller Advertised Price ($): {Aprice.length !== 0 ? Aprice : this.state.advertisedPrice}</p></Col>
+                  {/* <Col span={1}></Col> */}
+                  <Col span={6}><p className="price">Lowest Possible Price ($): {Lprice.length !== 0 ? Lprice : this.state.lowestPrice}</p></Col>
+                  {/* <Col span={1}></Col> */}
+                  <Col span={3}><p className="price">MAP ($): {map.length !== 0 ? map : this.state.map}</p></Col>
+                  <Col span={1}></Col>
+                  <Col span={3}><p className="price">SKU: {sku.length !== 0 ? sku : this.state.sku}</p></Col>
+                  </Col>
               <Col span={24} style={{marginTop:"-3em"}}>
-              {/* <Col span={1}></Col> */}
-              <Col span={10}><p className="price">Notes: {notes.length !== 0 ? notes : this.state.notes}</p></Col>
-              <Col span={3}></Col>
-              <Col span={2}></Col>
-              <Col span={8}>
-                <ButtonGroup className="nextPrev">
-                  <Button onClick={this.previous} disabled={this.state.previous}>
-                    <Icon style={{ color: "#fff" }} type="step-backward" />
-                    {/* Previous */}
-                  </Button>
-                  <Button onClick={this.next} disabled={this.state.next}>
-                    {/* Next */}
-                    <Icon style={{ color: "#fff" }} type="step-forward" />
-                  </Button>
-                </ButtonGroup>
+                <Col span={8}><p className="price">Notes: {notes.length !== 0 ? notes : this.state.notes}</p></Col>
+                <Col span={1}></Col>
+                <Col span={4}><ButtonGroup className="nextPrev">
+                      <Button onClick={this.previous} disabled={this.state.previous}>
+                        <Icon style={{ color: "#fff" }} type="step-backward" />
+                      </Button>
+                      <Button onClick={this.next} disabled={this.state.next}>
+                        <Icon style={{ color: "#fff" }} type="step-forward" />
+                      </Button>
+                    </ButtonGroup></Col>
+                <Col span={4}></Col>
+                <Col span={6}>
+                <Button className="reject" onClick={this.reject}>Reject</Button>
+                    <Button className="approve" onClick={this.approve}>Approve</Button>
+                </Col>
               </Col>
-            </Col>
+              <Col span={24} style={{marginTop:"-2em"}}>
+                  <Col span={20}></Col>
+                  <Col span={3}>
+                    <Button className="hp" onClick={this.close}>
+                      Close
+                    </Button>
+                  </Col>
+                </Col>
             </Header>
           </Layout>
-          {/* <div className="header">
+         
+          <div style={{marginTop:"9em"}}>
             <Col span={24}>
-              <Col span={1}></Col>
-              <Col span={4}><p className="price">Violation ID: {violation_id.length !== 0 ? violation_id : this.state.id}</p></Col>
-              <Col span={1}></Col>
-              <Col span={5}><p className="price">Seller Advertised Price ($): {Aprice.length !== 0 ? Aprice : this.state.advertisedPrice}</p></Col>
-              <Col span={1}></Col>
-              <Col span={5}><p className="price">Lowest Possible Price ($): {Lprice.length !== 0 ? Lprice : this.state.lowestPrice}</p></Col>
-              <Col span={1}></Col>
-              <Col span={3}><p className="price">MAP ($): {map.length !== 0 ? map : this.state.map}</p></Col>
-              <Col span={1}></Col>
-              <Col span={2}><p className="price">SKU: {sku.length !== 0 ? sku : this.state.sku}</p></Col>
+               <Col span={22}>
+               <iframe
+                  title="Modal Embed"
+                  className="iframeAlign"
+                  src={url.length !== 0 ? url : this.state.url}
+                  frameborder="0" 
+                  // overflow="hidden"
+                  scrolling="no"
+                  // allowFullScreen
+                />
+               </Col>
+               <Col span={1}></Col>
+              
             </Col>
-            <Col span={24}>
-              <Col span={1}></Col>
-              <Col span={10}><p className="price">Notes: {notes.length !== 0 ? notes : this.state.notes}</p></Col>
-              <Col span={3}></Col>
-              <Col span={2}></Col>
-              <Col span={8}>
-                <ButtonGroup className="nextPrev">
-                  <Button onClick={this.previous} disabled={this.state.previous}>
-                    <Icon style={{ color: "#fff" }} type="step-backward" />
-                  </Button>
-                  <Button onClick={this.next} disabled={this.state.next}>
-                    <Icon style={{ color: "#fff" }} type="step-forward" />
-                  </Button>
-                </ButtonGroup>
-              </Col>
-            </Col>
-          </div> */}
-          <Col span={24} style={{marginTop:"7em"}}>
-            <iframe
-              title="Modal Embed"
-              className="iframeAlign"
-              src={url.length !== 0 ? url : this.state.url}
-              allowFullScreen
-            />
-          </Col>
+           
+          </div>
           <Col span={24}>
             <Col span={2}>
-              <Button className="hp" onClick={this.close} style={{ float: "right" }}>
+            {/* <Button className="hp" onClick={this.close} style={{ float: "left" }}>
                 Close
-                  </Button>
+                  </Button> */}
             </Col>
-            <Col span={18}></Col>
-            <Col span={4}>
-              <Button className="reject" onClick={this.reject}>Reject</Button>
-              <Button className="approve" onClick={this.approve}>Approve</Button>
+           
+            <Col span={2}>
+              {/* <Button className="reject" onClick={this.reject}>Reject</Button>
+              <Button className="approve" onClick={this.approve}>Approve</Button> */}
+             
             </Col>
+            <Col span={20}></Col>
             {/* <Col span={24}>
               <Col span={21}></Col>
               <Col span={3} style={{ float: "right" }}>&copy;<img src={scienaptic} alt="Scienaptic logo" style={{ width: "5em" }} /><img src={Hp} alt="Hp logo" style={{ width: "2em" }} /></Col>
