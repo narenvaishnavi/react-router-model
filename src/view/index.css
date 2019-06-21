@@ -1,0 +1,19 @@
+.login-form {
+    max-width: 300px;
+    margin-top: 12%;
+  }
+  .login-form-forgot {
+    float: right;
+  }
+  .login-form-button {
+    width: 100%;
+    background-color: #0095d9;
+    border-color: #0095d9;
+    color:#fff;
+  }
+  .login-form-button:hover {
+    width: 100%;
+    background-color: #0095d9;
+    border-color: #0095d9;
+    color:#fff;
+  }
